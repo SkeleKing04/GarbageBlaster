@@ -1,3 +1,5 @@
 # GarbageBlaster
 School Project
-This is a shooter
+## NOTES
+### BUGS
+### TODO
