@@ -4,9 +4,9 @@ School Project
 ## BUGS
 ## TODO
 ###Must Do
-Make Vacuum Gun__
-Make Garbage__
-Make Level__
-Make HUD__
+Make Vacuum Gun  
+Make Garbage  
+Make Level  
+Make HUD  
 ###Optional
 Improve player model
