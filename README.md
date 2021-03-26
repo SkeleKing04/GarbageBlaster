@@ -1,8 +1,8 @@
 # GarbageBlaster
 School Project
-# NOTES
-## BUGS
-## TODO
+## NOTES
+### BUGS
+### TODO
 **Must Do**  
  - Make Vacuum Gun  
  - Make Garbage  
