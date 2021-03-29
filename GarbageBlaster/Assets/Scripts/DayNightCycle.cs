@@ -4,13 +4,23 @@ using UnityEngine;
 
 public class DayNightCycle : MonoBehaviour
 {
-    public int CycleSpeed;
-    public GameObject m_OrbitCenter;
-    private int i = 0;
-    // Update is called once per frame
-    void FixedUpdate()
+    public GameObject m_CenterPoint;
+    public int m_RotateAmount = 1;
+    // Start is called before the first frame update
+    void Start()
     {
-        m_OrbitCenter.transform.rotation = new Quaternion(i, 0f, 0f, 0f);
-        i++;
+        IEnumerator;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        Debug.Log("Penis");
+        m_CenterPoint.transform.rotation = new Quaternion(m_RotateAmount, 0, 0, 1);
+    }
+    IEnumerator
+    {
+        m_CenterPoint.transform.rotation = new Quaternion(m_RotateAmount, 0, 0, 1);
+
     }
 }
