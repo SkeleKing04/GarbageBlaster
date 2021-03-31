@@ -5,16 +5,35 @@ using UnityEngine;
 public class ItemSpawner : MonoBehaviour
 {
     public GameObject m_ItemToSpawn;
-    public GameObject[] m_SpawnPoints;
+    public Transform[] m_SpawnPoints;
+    public float m_timer;
+    private GameObject m_currentInstance;
+    public int m_MaxGarbageCount;
+    public int m_GarbageCount;
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartCoroutine(SpawnItem());
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator SpawnItem()
     {
-        
+        while (true)
+        {
+            if (m_GarbageCount < m_MaxGarbageCount)
+            {
+                yield return new WaitForSeconds(m_timer);
+                int randomIndex = Random.Range(0, m_SpawnPoints.Length);
+                Vector3 position = m_SpawnPoints[randomIndex].position;
+                Quaternion rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+                m_currentInstance = Instantiate(m_ItemToSpawn, position, rotation) as GameObject;
+                m_GarbageCount++;
+                Debug.Log(m_GarbageCount);
+            }
+            else
+            {
+                Debug.Log("Max Garbage Reached");
+            }
+        }
     }
 }

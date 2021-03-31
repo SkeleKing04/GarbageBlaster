@@ -21,7 +21,10 @@ public class CollectItem : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            ItemSpawner garbageCount = Object.FindObjectOfType<ItemSpawner>();
+            garbageCount.m_GarbageCount -= 1;
             Destroy(gameObject);
+            Debug.Log(garbageCount.m_GarbageCount);
         }
     }
 }
