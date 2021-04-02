@@ -20,9 +20,9 @@ public class ItemSpawner : MonoBehaviour
     {
         while (true)
         {
-            if (m_GarbageCount < m_MaxGarbageCount)
+            yield return new WaitForSeconds(m_timer);
+            if (m_GarbageCount <= m_MaxGarbageCount)
             {
-                yield return new WaitForSeconds(m_timer);
                 int randomIndex = Random.Range(0, m_SpawnPoints.Length);
                 Vector3 position = m_SpawnPoints[randomIndex].position;
                 Quaternion rotation = Quaternion.Euler(new Vector3(0, 0, 0));

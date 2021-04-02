@@ -23,6 +23,9 @@ public class CollectItem : MonoBehaviour
         {
             ItemSpawner garbageCount = Object.FindObjectOfType<ItemSpawner>();
             garbageCount.m_GarbageCount -= 1;
+            GameManager gameManager = Object.FindObjectOfType<GameManager>();
+            gameManager.m_Score++;
+            gameManager.UpdateScoreText();
             Destroy(gameObject);
             Debug.Log(garbageCount.m_GarbageCount);
         }
