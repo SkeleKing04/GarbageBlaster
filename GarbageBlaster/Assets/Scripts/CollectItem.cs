@@ -23,8 +23,11 @@ public class CollectItem : MonoBehaviour
         {
             ItemSpawner garbageCount = Object.FindObjectOfType<ItemSpawner>();
             garbageCount.m_GarbageCount -= 1;
+            garbageCount.m_HasGarbage[garbageCount.randomIndex] = false;
+            GameManager gameManager = Object.FindObjectOfType<GameManager>();
+            gameManager.m_Score += 1;
             Destroy(gameObject);
-            Debug.Log(garbageCount.m_GarbageCount);
+            Debug.Log("Garbage Count = "+garbageCount.m_GarbageCount);
         }
     }
 }
