@@ -21,13 +21,14 @@ public class CollectItem : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            ItemSpawner garbageCount = Object.FindObjectOfType<ItemSpawner>();
-            garbageCount.m_GarbageCount -= 1;
+            ItemSpawner itemSpawner = Object.FindObjectOfType<ItemSpawner>();
+            itemSpawner.m_GarbageCount--;
+            VacGun vacGun = Object.FindObjectOfType<VacGun>();
+            vacGun.m_LoadedGarbage++;
             GameManager gameManager = Object.FindObjectOfType<GameManager>();
-            gameManager.m_Score++;
-            gameManager.UpdateScoreText();
+            gameManager.UpdateGarbageText();
             Destroy(gameObject);
-            Debug.Log(garbageCount.m_GarbageCount);
+            Debug.Log(itemSpawner.m_GarbageCount);
         }
     }
 }

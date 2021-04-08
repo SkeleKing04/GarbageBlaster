@@ -5,12 +5,15 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public int m_Score;
-    public Text m_ScoreDiplay;
+    public int m_Score = 0;
+    public Text m_ScoreDisplay;
+    public Text m_GarbageLoadedDisplay;
     // Start is called before the first frame update
     void Start()
     {
-        m_ScoreDiplay.text = 0.ToString();
+        m_ScoreDisplay.text = "Score:\n" + m_Score.ToString();
+        VacGun vacGun = Object.FindObjectOfType<VacGun>();
+        m_GarbageLoadedDisplay.text = "Ammo:\n" + vacGun.m_LoadedGarbage.ToString();
     }
 
     // Update is called once per frame
@@ -20,6 +23,11 @@ public class GameManager : MonoBehaviour
     }
     public void UpdateScoreText()
     {
-        m_ScoreDiplay.text = m_Score.ToString();
+        m_ScoreDisplay.text = "Score:\n"+m_Score.ToString();
+    }
+    public void UpdateGarbageText()
+    {
+        VacGun vacGun = Object.FindObjectOfType<VacGun>();
+        m_GarbageLoadedDisplay.text = "Ammo:\n"+vacGun.m_LoadedGarbage.ToString();
     }
 }
