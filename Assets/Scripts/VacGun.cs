@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class VacGun : MonoBehaviour
 {
@@ -8,13 +9,14 @@ public class VacGun : MonoBehaviour
     public Transform m_FireTransform;
     public float m_LaunchForce = 30f;
     public int m_LoadedGarbage = 0;
+    public Transform m_RotateAxis;
 
     // Update is called once per frame
     void Update()
     {
         if (m_LoadedGarbage >= 1)
         {
-            if (Input.GetButtonUp("Fire1"))
+            if (Input.GetMouseButtonUp(0))
             {
                 Fire();
             }
