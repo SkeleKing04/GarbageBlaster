@@ -12,6 +12,7 @@ public class ItemSpawner : MonoBehaviour
     public int m_GarbageCount;
     public bool[] m_SpawnPointFull;
     public bool m_garbageSpawned;
+    public int randomIndex;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,9 +26,9 @@ public class ItemSpawner : MonoBehaviour
             yield return new WaitForSeconds(m_timer);
             if (m_GarbageCount <= m_MaxGarbageCount)
             {
-                while (m_garbageSpawned == false)
-                {
-                    int randomIndex = Random.Range(0, m_SpawnPoints.Length);
+                //while (m_garbageSpawned == false)
+                //{
+                    randomIndex = Random.Range(0, m_SpawnPoints.Length);
                     if (m_SpawnPointFull[randomIndex] == false)
                     {
                         Vector3 position = m_SpawnPoints[randomIndex].position;
@@ -43,7 +44,7 @@ public class ItemSpawner : MonoBehaviour
                         Debug.Log("There is already garbage here");
                     }
                     m_garbageSpawned = false;
-                }
+                //}
             }
             else
             {

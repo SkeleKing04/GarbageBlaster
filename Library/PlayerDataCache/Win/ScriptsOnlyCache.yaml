@@ -176,7 +176,7 @@ ScriptsOnlyBuild:
     className: GroupTrack
   - hash:
       serializedVersion: 2
-      Hash: c52a208a0e1d0653f2b861adfdf50d9b
+      Hash: 4247cea0db30d3563049d80c8719e5a7
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ItemSpawner
@@ -338,7 +338,7 @@ ScriptsOnlyBuild:
     className: Selectable
   - hash:
       serializedVersion: 2
-      Hash: 3be1cff773a612a07dee5655436e6be4
+      Hash: d93cbb7e5c35dd079097a4288e53b2e3
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CollectItem

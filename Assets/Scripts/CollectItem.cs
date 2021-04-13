@@ -6,10 +6,12 @@ using UnityEngine;
 public class CollectItem : MonoBehaviour
 {
     public GameObject m_Collectable;
+    public int m_SpawnLocal;
     // Start is called before the first frame update
     void Start()
     {
-        
+        ItemSpawner itemSpawner = Object.FindObjectOfType<ItemSpawner>();
+        m_SpawnLocal = itemSpawner.randomIndex;
     }
 
     // Update is called once per frame
@@ -23,6 +25,7 @@ public class CollectItem : MonoBehaviour
         {
             ItemSpawner itemSpawner = Object.FindObjectOfType<ItemSpawner>();
             itemSpawner.m_GarbageCount--;
+            itemSpawner.m_SpawnPointFull[m_SpawnLocal] = false;
             VacGun vacGun = Object.FindObjectOfType<VacGun>();
             vacGun.m_LoadedGarbage++;
             GameManager gameManager = Object.FindObjectOfType<GameManager>();
