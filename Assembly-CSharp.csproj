@@ -72,8 +72,11 @@
     <Compile Include="Assets\Scripts\ItemSpawner.cs" />
     <Compile Include="Assets\Scripts\MoveCamera.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\SaveSettings.cs" />
+    <Compile Include="Assets\Scripts\SinMovement.cs" />
     <Compile Include="Assets\Scripts\VacGun.cs" />
     <Compile Include="Assets\Scripts\wagabababobo.cs" />
+    <None Include="Assets\settings.txt" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/User/Documents/GitHub/GarbageBlaster/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

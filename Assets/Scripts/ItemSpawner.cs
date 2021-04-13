@@ -26,8 +26,9 @@ public class ItemSpawner : MonoBehaviour
             yield return new WaitForSeconds(m_timer);
             if (m_GarbageCount <= m_MaxGarbageCount)
             {
-                //while (m_garbageSpawned == false)
-                //{
+                m_garbageSpawned = false;
+                while (m_garbageSpawned == false)
+                {
                     randomIndex = Random.Range(0, m_SpawnPoints.Length);
                     if (m_SpawnPointFull[randomIndex] == false)
                     {
@@ -42,9 +43,9 @@ public class ItemSpawner : MonoBehaviour
                     else
                     {
                         Debug.Log("There is already garbage here");
+                        m_garbageSpawned = false;
                     }
-                    m_garbageSpawned = false;
-                //}
+                }
             }
             else
             {

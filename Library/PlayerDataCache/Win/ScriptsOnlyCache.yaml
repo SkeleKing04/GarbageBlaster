@@ -8,6 +8,7 @@ ScriptsOnlyBuild:
     - ItemSpawner
     - MoveCamera
     - PlayerMovement
+    - SinMovement
     - VacGun
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
@@ -78,25 +79,27 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11738}
     - Class: 114
-      Script: {instanceID: 11858}
+      Script: {instanceID: 11854}
     - Class: 114
-      Script: {instanceID: 11976}
+      Script: {instanceID: 11860}
     - Class: 114
-      Script: {instanceID: 12118}
+      Script: {instanceID: 11978}
     - Class: 114
       Script: {instanceID: 12120}
     - Class: 114
-      Script: {instanceID: 12462}
+      Script: {instanceID: 12122}
     - Class: 114
-      Script: {instanceID: 12562}
+      Script: {instanceID: 12464}
     - Class: 114
-      Script: {instanceID: 12598}
+      Script: {instanceID: 12566}
     - Class: 114
-      Script: {instanceID: 12888}
+      Script: {instanceID: 12602}
     - Class: 114
-      Script: {instanceID: 12948}
+      Script: {instanceID: 12892}
     - Class: 114
-      Script: {instanceID: 12978}
+      Script: {instanceID: 12952}
+    - Class: 114
+      Script: {instanceID: 12982}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -338,6 +341,12 @@ ScriptsOnlyBuild:
     className: Selectable
   - hash:
       serializedVersion: 2
+      Hash: 8fc446a3af2b92c1fe152d7a80e1d499
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SinMovement
+  - hash:
+      serializedVersion: 2
       Hash: d93cbb7e5c35dd079097a4288e53b2e3
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -392,7 +401,7 @@ ScriptsOnlyBuild:
     className: Button
   - hash:
       serializedVersion: 2
-      Hash: 04439d0d7000c10d6f031616f62a785e
+      Hash: c6a884ffbc83f07164a1bdb77a263467
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameManager
@@ -462,6 +471,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: DayNightCycle
+  - hash:
+      serializedVersion: 2
+      Hash: 90786f5a39c05d698924d9609c01275b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SaveSettings
   - hash:
       serializedVersion: 2
       Hash: 3b760e6526e13f7504f59e210145899a
