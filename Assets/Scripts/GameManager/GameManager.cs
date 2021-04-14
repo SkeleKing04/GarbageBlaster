@@ -18,6 +18,10 @@ public class GameManager : MonoBehaviour
     public Text m_VolumeSliderText;
     public Slider m_FOVSlider;
     public Text m_FOVSliderText;
+    public float m_LevelTime;
+    private float m_DisplayTime;
+    public Text m_TimerDisplay;
+    public Text m_MessageText;
     string currentDirectory;
     public string m_SettingsFileName = "settings.txt";
     public float[] m_SettingsValues = new float[2];
@@ -36,9 +40,11 @@ public class GameManager : MonoBehaviour
         {
             gameObject.gameObject.SetActive(false);
         }
+        m_MessageText.gameObject.SetActive(false);
         AudioListener.volume = m_VolumeSlider.value;
         m_VolumeSliderText.text = "Volume: " + Mathf.RoundToInt(m_VolumeSlider.value * 100).ToString() + "%";
         m_FOVSliderText.text = "FOV: " + Mathf.RoundToInt((m_FOVSlider.value * 100) + 30).ToString();
+        m_DisplayTime = m_LevelTime;
     }
 
     // Update is called once per frame
@@ -52,6 +58,7 @@ public class GameManager : MonoBehaviour
         {
             ResumeGame();
         }
+        UpdateTimer();
     }
     public void UpdateScoreText()
     {
@@ -172,5 +179,26 @@ public class GameManager : MonoBehaviour
         }
         fileWriter.Close();
         Debug.Log("Settings Updated");
+    }
+    public void UpdateTimer()
+    {
+        m_DisplayTime -= Time.deltaTime;
+        int seconds = Mathf.RoundToInt(m_DisplayTime);
+        m_TimerDisplay.text = string.Format("{0:D2}:{1:D2}", (seconds / 60), (seconds % 60));
+        if(m_DisplayTime <= 0)
+        {
+            GameOver();
+        }
+    }
+    public void GameOver()
+    {
+        m_MessageText.gameObject.SetActive(true);
+        Debug.Log("Game Over");
+        PauseGame();
+        m_isGamePaused = false;
+        m_PauseMenu[1].SetActive(false);
+        m_MessageText.text = "Time's Up!";
+        WaitForSecondsRealtime wait = new WaitForSecondsRealtime(10);
+        m_MessageText.text = "Your final score was " + m_Score + "!\nWell done!";
     }
 }
