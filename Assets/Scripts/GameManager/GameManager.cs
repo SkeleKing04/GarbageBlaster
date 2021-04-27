@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour
     string currentDirectory;
     public string m_SettingsFileName = "settings.txt";
     public float[] m_SettingsValues = new float[2];
+    //private float waitFor;
+    //private bool wait = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,8 +47,17 @@ public class GameManager : MonoBehaviour
         m_VolumeSliderText.text = "Volume: " + Mathf.RoundToInt(m_VolumeSlider.value * 100).ToString() + "%";
         m_FOVSliderText.text = "FOV: " + Mathf.RoundToInt((m_FOVSlider.value * 100) + 30).ToString();
         m_DisplayTime = m_LevelTime;
+        m_MessageText.text = "Ready...";
+        Time.timeScale = 0;
+        //waitFor = 3;
+        //StartCoroutine(WaitCommand(waitFor));
+        //WaitUntil waitUntil = wait == true;
+        m_MessageText.text = "Go!";
+        //waitFor = 0.5f;
+        //StartCoroutine(WaitCommand(waitFor));
+        m_MessageText.gameObject.SetActive(false);
+        Time.timeScale = 1;
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -198,7 +209,17 @@ public class GameManager : MonoBehaviour
         m_isGamePaused = false;
         m_PauseMenu[1].SetActive(false);
         m_MessageText.text = "Time's Up!";
-        WaitForSecondsRealtime wait = new WaitForSecondsRealtime(10);
+        //waitFor = 2;
+        //StartCoroutine(WaitCommand(waitFor));
         m_MessageText.text = "Your final score was " + m_Score + "!\nWell done!";
+
+    }
+    IEnumerator WaitCommand(float waitFor)
+    {
+        Debug.Log("Waiting for " + waitFor + " seconds");
+        yield return new WaitForSecondsRealtime(waitFor);
+
+        Debug.Log("Done waiting");
+
     }
 }
