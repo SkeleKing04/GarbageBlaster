@@ -6,6 +6,7 @@ public class GoalScoredCheck : MonoBehaviour
 {
     public Collider m_itemContact;
     public GameObject m_Garbage;
+    public ParticleSystem m_goalScored;
     // Start is called before the first frame update
     void Start()
     {
