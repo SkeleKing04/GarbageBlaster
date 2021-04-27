@@ -10,6 +10,9 @@ public class ItemSpawner : MonoBehaviour
     private GameObject m_currentInstance;
     public int m_MaxGarbageCount;
     public int m_GarbageCount;
+    public bool[] m_SpawnPointFull;
+    public bool m_garbageSpawned;
+    public int randomIndex;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,12 +26,26 @@ public class ItemSpawner : MonoBehaviour
             yield return new WaitForSeconds(m_timer);
             if (m_GarbageCount <= m_MaxGarbageCount)
             {
-                int randomIndex = Random.Range(0, m_SpawnPoints.Length);
-                Vector3 position = m_SpawnPoints[randomIndex].position;
-                Quaternion rotation = Quaternion.Euler(new Vector3(0, 0, 0));
-                m_currentInstance = Instantiate(m_ItemToSpawn, position, rotation) as GameObject;
-                m_GarbageCount++;
-                Debug.Log(m_GarbageCount);
+                m_garbageSpawned = false;
+                while (m_garbageSpawned == false)
+                {
+                    randomIndex = Random.Range(0, m_SpawnPoints.Length);
+                    if (m_SpawnPointFull[randomIndex] == false)
+                    {
+                        Vector3 position = m_SpawnPoints[randomIndex].position;
+                        Quaternion rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+                        m_currentInstance = Instantiate(m_ItemToSpawn, position, rotation) as GameObject;
+                        m_GarbageCount++;
+                        m_SpawnPointFull[randomIndex] = true;
+                        m_garbageSpawned = true;
+                        Debug.Log(m_GarbageCount);
+                    }
+                    else
+                    {
+                        Debug.Log("There is already garbage here");
+                        m_garbageSpawned = false;
+                    }
+                }
             }
             else
             {

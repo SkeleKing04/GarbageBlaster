@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -40,6 +42,7 @@ public class GameManager : MonoBehaviour
         {
             gameObject.gameObject.SetActive(false);
         }
+        m_MessageText.gameObject.SetActive(false);
         AudioListener.volume = m_VolumeSlider.value;
         m_VolumeSliderText.text = "Volume: " + Mathf.RoundToInt(m_VolumeSlider.value * 100).ToString() + "%";
         m_FOVSliderText.text = "FOV: " + Mathf.RoundToInt((m_FOVSlider.value * 100) + 30).ToString();
@@ -58,7 +61,15 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyUp(KeyCode.Tab) && m_isGamePaused == false)
+        {
+            PauseGame();
+        }
+        else if (Input.GetKeyUp(KeyCode.Tab) && m_isGamePaused == true)
+        {
+            ResumeGame();
+        }
+        UpdateTimer();
     }
     public void UpdateScoreText()
     {
@@ -209,5 +220,6 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(waitFor);
 
         Debug.Log("Done waiting");
+
     }
 }
