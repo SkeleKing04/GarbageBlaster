@@ -4784,14 +4784,8 @@ Transform:
   m_GameObject: {fileID: 1595230657142758252}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 6.81, y: 1.4, z: -1.25}
-<<<<<<< Updated upstream
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
-=======
-  m_LocalScale: {x: 140, y: 140, z: 140}
-  m_Children:
-  - {fileID: 7227902388337511984}
->>>>>>> Stashed changes
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
