@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
         currentDirectory = Application.dataPath;
         Debug.Log("Directory - " + currentDirectory);
         LoadSettings();
+        loadScores();
         ChangeVolume();
         ChangeFOV();
         m_ScoreDisplay.text = "Score:\n" + m_Score.ToString();
@@ -225,5 +226,58 @@ public class GameManager : MonoBehaviour
 
         Debug.Log("Done waiting");
 
+    }
+    public void loadScores()
+    {
+        bool fileExists = File.Exists(currentDirectory + "\\" + m_HighScoresFileName);
+        if (fileExists == true)
+        {
+            Debug.Log(m_HighScoresFileName + " exists");
+        }
+        else
+        {
+            Debug.Log(m_HighScoresFileName + " does not exist", this);
+            return;
+        }
+        fileExists = File.Exists(currentDirectory + "\\" + m_HighScoreNames);
+        if (fileExists == true)
+        {
+            Debug.Log(m_HighScoreNames + " exists");
+        }
+        else
+        {
+            Debug.Log(m_HighScoreNames + " does not exist", this);
+            return;
+        }
+        StreamReader fileReader;
+        try
+        {
+            fileReader = new StreamReader(currentDirectory + "\\" + m_HighScoresFileName);
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e.Message);
+            return;
+        }
+        m_Scores = new int[m_Scores.Length];
+        int ScoresCount = 0;
+        while (fileReader.Peek() != 0 && ScoresCount < m_Scores.Length)
+        {
+            string fileLine = fileReader.ReadLine();
+            int readValue = -1;
+            bool didParse = int.TryParse(fileLine, out readValue);
+            if (didParse)
+            {
+                m_Scores[ScoresCount] = readValue;
+            }
+            else
+            {
+                Debug.Log("INVALID SETTINGS VALUE @ " + ScoresCount + ", USING DEFAULT VALUE.", this);
+                m_Scores[ScoresCount] = 0;
+            }
+            ScoresCount++;
+        }
+        fileReader.Close();
+        Debug.Log("Scores Loaded.");
     }
 }
