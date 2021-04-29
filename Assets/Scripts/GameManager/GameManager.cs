@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
     private float m_DisplayTime;
     public Text m_TimerDisplay;
     public Text m_MessageText;
+    private bool m_isWaiting;
+    private int waitFor;
     string currentDirectory;
     public string m_SettingsFileName = "settings.txt";
     public float[] m_SettingsValues = new float[2];
@@ -50,8 +52,10 @@ public class GameManager : MonoBehaviour
         m_MessageText.text = "Ready...";
         Time.timeScale = 0;
         //waitFor = 3;
+        //m_isWaiting = true;
         //StartCoroutine(WaitCommand(waitFor));
-        //WaitUntil waitUntil = wait == true;
+        //WaitUntil waitUntil;
+        //waitUntil = m_isWaiting == false;
         m_MessageText.text = "Go!";
         //waitFor = 0.5f;
         //StartCoroutine(WaitCommand(waitFor));
@@ -218,7 +222,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Waiting for " + waitFor + " seconds");
         yield return new WaitForSecondsRealtime(waitFor);
-
+        m_isWaiting = false;
         Debug.Log("Done waiting");
 
     }
