@@ -25,6 +25,10 @@ public class GameManager : MonoBehaviour
     string currentDirectory;
     public string m_SettingsFileName = "settings.txt";
     public float[] m_SettingsValues = new float[2];
+    public string m_HighScoresFileName = "highscores.txt";
+    public string m_HighScoreNames = "highscorenames.txt";
+    public int[] m_Scores = new int[5];
+    public string[] m_ScoreNames = new string[5];
     //private float waitFor;
     //private bool wait = false;
     // Start is called before the first frame update

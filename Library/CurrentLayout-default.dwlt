@@ -20,8 +20,13 @@ MonoBehaviour:
     height: 997
   m_ShowMode: 4
   m_Title: Inspector
+<<<<<<< Updated upstream
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 542}
+=======
+  m_RootView: {fileID: 7}
+  m_MinSize: {x: 875, y: 300}
+>>>>>>> Stashed changes
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
@@ -48,8 +53,13 @@ MonoBehaviour:
   m_MinSize: {x: 678, y: 492}
   m_MaxSize: {x: 14001, y: 14042}
   vertical: 0
+<<<<<<< Updated upstream
   controlID: 59
 --- !u!114 &3
+=======
+  controlID: 16
+--- !u!114 &4
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -149,8 +159,13 @@ MonoBehaviour:
     x: 0
     y: 0
     width: 1920
+<<<<<<< Updated upstream
     height: 997
   m_MinSize: {x: 875, y: 542}
+=======
+    height: 1007
+  m_MinSize: {x: 875, y: 300}
+>>>>>>> Stashed changes
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &7
 MonoBehaviour:
@@ -220,7 +235,11 @@ MonoBehaviour:
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
   controlID: 64
+<<<<<<< Updated upstream
 --- !u!114 &10
+=======
+--- !u!114 &11
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -245,7 +264,11 @@ MonoBehaviour:
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
   controlID: 65
+<<<<<<< Updated upstream
 --- !u!114 &11
+=======
+--- !u!114 &12
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -400,20 +423,26 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs
+    - Assets/Scripts/GameManager
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Prefabs
+  - Assets/Scripts/GameManager
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\User\Documents\GitHub\GarbageBlaster
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
+<<<<<<< Updated upstream
     m_SelectedIDs: b2350000
     m_LastClickedID: 13746
     m_ExpandedIDs: 000000009a35000000ca9a3b
+=======
+    m_SelectedIDs: 1e370000
+    m_LastClickedID: 14110
+    m_ExpandedIDs: 00000000fe3600001c37000000ca9a3b
+>>>>>>> Stashed changes
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -441,7 +470,11 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< Updated upstream
     m_ExpandedIDs: 000000009a350000
+=======
+    m_ExpandedIDs: 00000000fe360000
+>>>>>>> Stashed changes
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -564,9 +597,15 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
+<<<<<<< Updated upstream
       m_SelectedIDs: 7e330000
       m_LastClickedID: 13182
       m_ExpandedIDs: 60fbffff70fbffff72330000
+=======
+      m_SelectedIDs: d6330000
+      m_LastClickedID: 13270
+      m_ExpandedIDs: 70fbffffc2340000
+>>>>>>> Stashed changes
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -676,7 +715,11 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: 0.43583012, y: -0.04264836, z: 0.02068577, w: 0.89879364}
     speed: 2
+<<<<<<< Updated upstream
     m_Value: {x: 0.43579325, y: -0.04399596, z: 0.021339228, w: 0.89871764}
+=======
+    m_Value: {x: 0.24365641, y: 0.6759179, z: -0.25441852, w: 0.64733124}
+>>>>>>> Stashed changes
   m_Size:
     m_Target: 355.84503
     speed: 2
