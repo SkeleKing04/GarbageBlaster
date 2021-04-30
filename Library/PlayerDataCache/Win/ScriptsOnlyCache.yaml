@@ -65,41 +65,41 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11152}
+      Script: {instanceID: 11154}
     - Class: 114
-      Script: {instanceID: 11218}
+      Script: {instanceID: 11220}
     - Class: 114
-      Script: {instanceID: 11288}
+      Script: {instanceID: 11290}
     - Class: 114
-      Script: {instanceID: 11314}
+      Script: {instanceID: 11316}
     - Class: 114
-      Script: {instanceID: 11354}
+      Script: {instanceID: 11356}
     - Class: 114
-      Script: {instanceID: 11434}
+      Script: {instanceID: 11436}
     - Class: 114
-      Script: {instanceID: 11738}
+      Script: {instanceID: 11740}
     - Class: 114
-      Script: {instanceID: 11854}
+      Script: {instanceID: 11858}
     - Class: 114
-      Script: {instanceID: 11860}
+      Script: {instanceID: 11864}
     - Class: 114
-      Script: {instanceID: 11978}
+      Script: {instanceID: 11982}
     - Class: 114
-      Script: {instanceID: 12120}
+      Script: {instanceID: 12124}
     - Class: 114
-      Script: {instanceID: 12122}
+      Script: {instanceID: 12126}
     - Class: 114
-      Script: {instanceID: 12464}
+      Script: {instanceID: 12468}
     - Class: 114
-      Script: {instanceID: 12566}
+      Script: {instanceID: 12570}
     - Class: 114
-      Script: {instanceID: 12602}
+      Script: {instanceID: 12606}
     - Class: 114
-      Script: {instanceID: 12892}
+      Script: {instanceID: 12896}
     - Class: 114
-      Script: {instanceID: 12952}
+      Script: {instanceID: 12956}
     - Class: 114
-      Script: {instanceID: 12982}
+      Script: {instanceID: 12986}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -329,6 +329,12 @@ ScriptsOnlyBuild:
     className: TMP_SpriteAsset
   - hash:
       serializedVersion: 2
+      Hash: c35b92cf306d827ca408efcf46170c22
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: AINavigation
+  - hash:
+      serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -347,7 +353,7 @@ ScriptsOnlyBuild:
     className: SinMovement
   - hash:
       serializedVersion: 2
-      Hash: d93cbb7e5c35dd079097a4288e53b2e3
+      Hash: 4a1d32841c33e707973650ee84087e65
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CollectItem
@@ -401,7 +407,7 @@ ScriptsOnlyBuild:
     className: Button
   - hash:
       serializedVersion: 2
-      Hash: c6a884ffbc83f07164a1bdb77a263467
+      Hash: d548d03cdfd88dbb078d8f740b79c1eb
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameManager
@@ -624,4 +630,4 @@ ScriptsOnlyBuild:
   platform: 5
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/User/Documents/GitHub/GarbageBlaster/Build/GarbageBlaster.exe
+  playerPath: C:/Users/18lucasj/Documents/GitHub/GarbageBlaster/Build/GarbageBlaster.exe
