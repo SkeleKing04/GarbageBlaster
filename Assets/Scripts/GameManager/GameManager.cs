@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     public Slider m_FOVSlider;
     public Text m_FOVSliderText;
     public float m_LevelTime;
-    private float m_DisplayTime;
+    public float m_DisplayTime;
     public Text m_TimerDisplay;
     public Text m_MessageText;
     string currentDirectory;
@@ -58,6 +58,7 @@ public class GameManager : MonoBehaviour
         //StartCoroutine(WaitCommand(waitFor));
         //WaitUntil waitUntil = wait == true;
         m_MessageText.text = "Go!";
+        StartCoroutine(Timer(m_DisplayTime, m_TimerDisplay));
         //waitFor = 0.5f;
         //StartCoroutine(WaitCommand(waitFor));
         m_MessageText.gameObject.SetActive(false);
@@ -74,7 +75,6 @@ public class GameManager : MonoBehaviour
         {
             ResumeGame();
         }
-        UpdateTimer();
     }
     public void UpdateScoreText()
     {
@@ -198,12 +198,18 @@ public class GameManager : MonoBehaviour
     }
     public void UpdateTimer()
     {
-        m_DisplayTime -= Time.deltaTime;
-        int seconds = Mathf.RoundToInt(m_DisplayTime);
-        m_TimerDisplay.text = string.Format("{0:D2}:{1:D2}", (seconds / 60), (seconds % 60));
-        if(m_DisplayTime <= 0)
+    }
+    IEnumerator Timer(float m_DisplayTime, Text m_TimerDisplay)
+    {
+        while (true)
         {
-            GameOver();
+            m_DisplayTime -= Time.deltaTime;
+            int seconds = Mathf.RoundToInt(m_DisplayTime);
+            m_TimerDisplay.text = string.Format("{0:D2}:{1:D2}", (seconds / 60), (seconds % 60));
+            if (m_DisplayTime <= 0)
+            {
+                GameOver();
+            }
         }
     }
     public void GameOver()
