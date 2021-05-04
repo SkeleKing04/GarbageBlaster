@@ -77,9 +77,6 @@
  <Reference Include="Unity.VSCode.Editor">
  <HintPath>C:/Users/18lucasj/Documents/GitHub/GarbageBlaster/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
  </Reference>
- <Reference Include="Unity.InputSystem">
- <HintPath>C:/Users/18lucasj/Documents/GitHub/GarbageBlaster/Library/ScriptAssemblies/Unity.InputSystem.dll</HintPath>
- </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/Users/18lucasj/Documents/GitHub/GarbageBlaster/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
