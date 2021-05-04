@@ -8,6 +8,7 @@ using System;
 public class GameManager : MonoBehaviour
 {
     public int m_Score = 0;
+    public string m_PlayerName;
     public Text m_ScoreDisplay;
     public Text m_GarbageLoadedDisplay;
     public GameObject[] m_InGameHUD;
@@ -29,7 +30,8 @@ public class GameManager : MonoBehaviour
     public string m_HighScoreNames = "highscorenames.txt";
     public int[] m_Scores = new int[5];
     public string[] m_ScoreNames = new string[5];
-    //private float waitFor;
+    public bool waiting = false;
+    public float waitFor;
     //private bool wait = false;
     // Start is called before the first frame update
     void Start()
@@ -231,6 +233,8 @@ public class GameManager : MonoBehaviour
         //waitFor = 2;
         //StartCoroutine(WaitCommand(waitFor));
         m_MessageText.text = "Your final score was " + m_Score + "!\nWell done!";
+        AddScore();
+        SaveScores();
 
     }
     IEnumerator WaitCommand(float waitFor)
@@ -316,5 +320,59 @@ public class GameManager : MonoBehaviour
         }
         fileReader.Close();
         Debug.Log("Scores Loaded.");
+    }
+    public void SaveScores()
+    {
+        // Create a StreamWriter for our file path.
+        StreamWriter fileWriter = new StreamWriter(currentDirectory + "\\" + m_HighScoresFileName);
+
+        // Write the lines to the file
+        for (int i = 0; i < m_Scores.Length; i++)
+        {
+            fileWriter.WriteLine(m_Scores[i]);
+        }
+        fileWriter = new StreamWriter(currentDirectory + "\\" + m_HighScoreNames);
+        for (int i = 0; i < m_ScoreNames.Length; i++)
+        {
+            fileWriter.WriteLine(m_ScoreNames[i]);
+        }
+        // Close the stream
+        fileWriter.Close();
+
+        // Write a log message.
+        Debug.Log("High scores writen to " + m_HighScoresFileName + " and " + m_HighScoreNames);
+    }
+    public void AddScore()
+    {
+        // First up we find out what index it belongs at. // This will be the first index with a score lower than // the new score.
+        int desiredIndex = -1;
+        for (int i = 0; i < m_Scores.Length; i++)
+        {
+            // Instead of checking the value of desiredIndex // we could also use 'break' to stop the loop.
+            if (m_Scores[i] < m_Score || m_Scores[i] == 0)
+            {
+                desiredIndex = i;
+                break;
+            }
+        }
+        // If no desired index was found then the score // isn't high enough to get on the table, so we just // abort.
+        if (desiredIndex < 0)
+        {
+            Debug.Log("Score of " + m_Score + " is not high enough for high scores list.", this);
+            return;
+        }
+        // Then we move all of the scores after that index // back by one position. We'll do this by looping from // the back of the array to our desired index.
+        for (int i = m_Scores.Length - 1; i > desiredIndex; i--)
+        {
+            m_Scores[i] = m_Scores[i - 1];
+        }
+        // Insert our new score in its place
+        m_Scores[desiredIndex] = m_Score;
+        /*for (int i = m_ScoreNames.Length - 1; i > desiredIndex; i--)
+        {
+            m_ScoreNames[i] = m_ScoreNames[i - 1];
+        }*/
+        m_ScoreNames[desiredIndex] = m_PlayerName;
+        Debug.Log(m_PlayerName + "'s score of " + m_Score + " entered into the high scores at position " + desiredIndex, this);
     }
 }
