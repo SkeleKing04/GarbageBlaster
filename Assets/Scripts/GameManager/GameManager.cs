@@ -52,17 +52,17 @@ public class GameManager : MonoBehaviour
         m_VolumeSliderText.text = "Volume: " + Mathf.RoundToInt(m_VolumeSlider.value * 100).ToString() + "%";
         m_FOVSliderText.text = "FOV: " + Mathf.RoundToInt((m_FOVSlider.value * 100) + 30).ToString();
         m_DisplayTime = m_LevelTime;
-        m_MessageText.text = "Ready...";
-        Time.timeScale = 0;
+        //m_MessageText.text = "Ready...";
+        //Time.timeScale = 0;
         //waitFor = 3;
         //StartCoroutine(WaitCommand(waitFor));
         //WaitUntil waitUntil = wait == true;
-        m_MessageText.text = "Go!";
-        StartCoroutine(Timer(m_DisplayTime, m_TimerDisplay));
+        //m_MessageText.text = "Go!";
+        //StartCoroutine(Timer(m_DisplayTime, m_TimerDisplay));
         //waitFor = 0.5f;
         //StartCoroutine(WaitCommand(waitFor));
         m_MessageText.gameObject.SetActive(false);
-        Time.timeScale = 1;
+        //Time.timeScale = 1;
     }
     // Update is called once per frame
     void Update()
@@ -75,6 +75,7 @@ public class GameManager : MonoBehaviour
         {
             ResumeGame();
         }
+        UpdateTimer();
     }
     public void UpdateScoreText()
     {
@@ -198,8 +199,15 @@ public class GameManager : MonoBehaviour
     }
     public void UpdateTimer()
     {
+        m_DisplayTime -= Time.deltaTime;
+        int seconds = Mathf.RoundToInt(m_DisplayTime);
+        m_TimerDisplay.text = string.Format("{0:D2}:{1:D2}", (seconds / 60), (seconds % 60));
+        if (m_DisplayTime <= 0)
+        {
+            GameOver();
+        }
     }
-    IEnumerator Timer(float m_DisplayTime, Text m_TimerDisplay)
+    /*IEnumerator Timer(float m_DisplayTime, Text m_TimerDisplay)
     {
         while (true)
         {
@@ -211,7 +219,7 @@ public class GameManager : MonoBehaviour
                 GameOver();
             }
         }
-    }
+    }*/
     public void GameOver()
     {
         m_MessageText.gameObject.SetActive(true);
