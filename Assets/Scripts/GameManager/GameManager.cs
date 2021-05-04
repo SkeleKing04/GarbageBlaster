@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     public float m_DisplayTime;
     public Text m_TimerDisplay;
     public Text m_MessageText;
+    public bool m_GameOver = false;
     string currentDirectory;
     public string m_SettingsFileName = "settings.txt";
     public float[] m_SettingsValues = new float[2];
@@ -42,6 +43,7 @@ public class GameManager : MonoBehaviour
         LoadScores();
         ChangeVolume();
         ChangeFOV();
+        m_GameOver = false;
         m_ScoreDisplay.text = "Score:\n" + m_Score.ToString();
         VacGun vacGun = UnityEngine.Object.FindObjectOfType<VacGun>();
         m_GarbageLoadedDisplay.text = "Ammo:\n" + vacGun.m_LoadedGarbage.ToString();
@@ -206,8 +208,13 @@ public class GameManager : MonoBehaviour
         m_TimerDisplay.text = string.Format("{0:D2}:{1:D2}", (seconds / 60), (seconds % 60));
         if (m_DisplayTime <= 0)
         {
-            GameOver();
+            while (m_GameOver == false)
+            {
+                GameOver();
+                m_GameOver = true;
+            }
         }
+        
     }
     /*IEnumerator Timer(float m_DisplayTime, Text m_TimerDisplay)
     {
@@ -279,18 +286,19 @@ public class GameManager : MonoBehaviour
         }
         m_Scores = new int[m_Scores.Length];
         int ScoresCount = 0;
+        Debug.Log("loading scores");
         while (fileReader.Peek() != 0 && ScoresCount < m_Scores.Length)
         {
             string fileLine = fileReader.ReadLine();
-            Debug.Log(fileLine);
+            Debug.Log("fileline " + fileLine);
             int readValue = -1;
-            Debug.Log(readValue);
+            Debug.Log("readvalue " + readValue);
             bool didParse = int.TryParse(fileLine, out readValue);
-            Debug.Log(didParse);
+            Debug.Log("didParse " + didParse);
             if (didParse)
             {
                 m_Scores[ScoresCount] = readValue;
-                Debug.Log(m_Scores[ScoresCount]);
+                Debug.Log("Score saved " + m_Scores[ScoresCount]);
             }
             else
             {
@@ -313,9 +321,9 @@ public class GameManager : MonoBehaviour
         while (fileReader.Peek() != 0 && NameCount < m_ScoreNames.Length)
         {
             string fileLine = fileReader.ReadLine();
-            Debug.Log(fileLine);
+            Debug.Log("fileline " + fileLine);
             m_ScoreNames[NameCount] = fileLine;
-            Debug.Log(m_ScoreNames[NameCount]);
+            Debug.Log("name saved " + m_ScoreNames[NameCount]);
             NameCount++;
         }
         fileReader.Close();
@@ -323,10 +331,7 @@ public class GameManager : MonoBehaviour
     }
     public void SaveScores()
     {
-        // Create a StreamWriter for our file path.
         StreamWriter fileWriter = new StreamWriter(currentDirectory + "\\" + m_HighScoresFileName);
-
-        // Write the lines to the file
         for (int i = 0; i < m_Scores.Length; i++)
         {
             fileWriter.WriteLine(m_Scores[i]);
@@ -336,11 +341,8 @@ public class GameManager : MonoBehaviour
         {
             fileWriter.WriteLine(m_ScoreNames[i]);
         }
-        // Close the stream
         fileWriter.Close();
-
-        // Write a log message.
-        Debug.Log("High scores writen to " + m_HighScoresFileName + " and " + m_HighScoreNames);
+        Debug.Log("scores and names saved");
     }
     public void AddScore()
     {

@@ -2898,6 +2898,11 @@ PrefabInstance:
       propertyPath: m_PlayerName
       value: NoobSlayer69
       objectReference: {fileID: 0}
+    - target: {fileID: 3867520517154875493, guid: 2e26b61aa082df941992da5387ffd2f5,
+        type: 3}
+      propertyPath: m_LevelTime
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4194352970164565381, guid: 2e26b61aa082df941992da5387ffd2f5,
         type: 3}
       propertyPath: m_AnchorMin.x
