@@ -2591,6 +2591,17 @@ MonoBehaviour:
   m_SettingsValues:
   - 0
   - 0
+  m_HighScoresFileName: highscores.txt
+  m_HighScoreNames: highscorenames.txt
+  m_Scores: 0000000000000000000000000000000000000000
+  m_ScoreNames:
+  - 
+  - 
+  - 
+  - 
+  - 
+  waiting: 0
+  waitFor: 0
 --- !u!1 &4776836335494910298
 GameObject:
   m_ObjectHideFlags: 0
