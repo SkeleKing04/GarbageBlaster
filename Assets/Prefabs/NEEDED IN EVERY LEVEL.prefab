@@ -2470,6 +2470,8 @@ GameObject:
   - component: {fileID: 5024900376506739648}
   - component: {fileID: 4640952057262313257}
   - component: {fileID: 3867520517154875493}
+  - component: {fileID: 9017063741490483986}
+  - component: {fileID: 5300333954887550732}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2524,7 +2526,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a0345a82c2512b418b6a2d631d91691, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_HighScoreEditor: {fileID: 9017063741490483986}
+  m_SettingEditor: {fileID: 5300333954887550732}
   m_Score: 0
+  m_PlayerName: 
   m_ScoreDisplay: {fileID: 3867520516310144017}
   m_GarbageLoadedDisplay: {fileID: 3867520516074767504}
   m_InGameHUD:
@@ -2543,8 +2548,45 @@ MonoBehaviour:
   m_FOVSlider: {fileID: 3867520516361937729}
   m_FOVSliderText: {fileID: 3867520517443116539}
   m_LevelTime: 60
+  m_DisplayTime: 0
   m_TimerDisplay: {fileID: 3867520516858468365}
   m_MessageText: {fileID: 3867520516629547436}
+  m_GameOver: 0
+  waiting: 0
+  waitFor: 0
+--- !u!114 &9017063741490483986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4251916280461259943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 161931dda74456a44b2aeeb7bb9718fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HighScoresFileName: highscores.txt
+  m_HighScoreNames: highscorenames.txt
+  m_Scores: 0000000000000000000000000000000000000000
+  m_ScoreNames:
+  - 
+  - 
+  - 
+  - 
+  - 
+--- !u!114 &5300333954887550732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4251916280461259943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48682dc1cae1f1942bdc0bfb4374a2dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_SettingsFileName: settings.txt
   m_SettingsValues:
   - 0
