@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     public GameObject[] m_InGameHUD;
     public GameObject[] m_PauseMenu;
     public bool m_isGamePaused = false;
+    public GameObject[] m_StartMenu;
+    public InputField m_NameInput;
     public Component[] m_PlayerParts;
     public Slider m_VolumeSlider;
     public Text m_VolumeSliderText;
@@ -33,6 +35,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     public enum GameState
     {
+        Opening,
         Start,
         Playing,
         GameOver
@@ -46,21 +49,38 @@ public class GameManager : MonoBehaviour
         m_SettingEditor.LoadSettings(m_VolumeSlider, m_FOVSlider);
         m_HighScoreEditor.LoadScores();
         m_GameState = GameState.Start;
-        
-        
     }
     // Update is called once per frame
     void Update()
     {
         switch (m_GameState)
         {
+            //case GameState.Opening:
+                //break;
             case GameState.Start:
+                Time.timeScale = 0;
+                m_PauseMenu[0].gameObject.SetActive(true);
+                m_PauseMenu[2].gameObject.SetActive(true);
+                m_DisplayTime = m_LevelTime;
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+                foreach (Component part in m_PlayerParts)
+                {
+                    part.gameObject.SetActive(false);
+                }
+                break;
+            case GameState.Playing:
                 ChangeVolume();
                 ChangeFOV();
                 //m_GameOver = false;
-                m_GameState = GameState.Playing;
-                break;
-            case GameState.Playing:
+                if (m_NameInput != null)
+                {
+                    m_PlayerName = m_NameInput.text;
+                }
+                else
+                {
+                    m_PlayerName = "Joe";
+                }
                 m_ScoreDisplay.text = "Score:\n" + m_Score.ToString();
                 VacGun vacGun = UnityEngine.Object.FindObjectOfType<VacGun>();
                 m_GarbageLoadedDisplay.text = "Ammo:\n" + vacGun.m_LoadedGarbage.ToString();
@@ -72,7 +92,6 @@ public class GameManager : MonoBehaviour
                 AudioListener.volume = m_VolumeSlider.value;
                 m_VolumeSliderText.text = "Volume: " + Mathf.RoundToInt(m_VolumeSlider.value * 100).ToString() + "%";
                 m_FOVSliderText.text = "FOV: " + Mathf.RoundToInt((m_FOVSlider.value * 100) + 30).ToString();
-                m_DisplayTime = m_LevelTime;
                 //m_MessageText.text = "Ready...";
                 //Time.timeScale = 0;
                 //waitFor = 3;
@@ -179,11 +198,11 @@ public class GameManager : MonoBehaviour
         m_TimerDisplay.text = string.Format("{0:D2}:{1:D2}", (seconds / 60), (seconds % 60));
         if (m_DisplayTime <= 0)
         {
-            while (m_GameOver == false)
-            {
+            //while (m_GameOver == false)
+            //{
                 m_GameState = GameState.GameOver;
-                m_GameOver = true;
-            }
+                //m_GameOver = true;
+            //}
         }
         
     }

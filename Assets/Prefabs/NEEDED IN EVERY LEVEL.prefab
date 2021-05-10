@@ -2762,7 +2762,10 @@ MonoBehaviour:
   m_PauseMenu:
   - {fileID: 3867520516197947717}
   - {fileID: 3867520517581452643}
+  - {fileID: 7504469451673228187}
   m_isGamePaused: 0
+  m_StartMenu:
+  - {fileID: 7504469451673228187}
   m_PlayerParts:
   - {fileID: 3867520516800693911}
   - {fileID: 3867520516071479407}
