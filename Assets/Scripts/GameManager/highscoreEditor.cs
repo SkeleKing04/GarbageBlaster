@@ -103,7 +103,16 @@ public class highscoreEditor : MonoBehaviour
     }
     public void SaveScores()
     {
-        StreamWriter fileWriter = new StreamWriter(currentDirectory + "\\" + m_HighScoresFileName);
+        StreamWriter fileWriter;
+        try
+        {
+            fileWriter = new StreamWriter(currentDirectory + "\\" + m_HighScoresFileName);
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e.Message);
+            return;
+        }
         for (int i = 0; i < m_Scores.Length; i++)
         {
             fileWriter.WriteLine(m_Scores[i]);

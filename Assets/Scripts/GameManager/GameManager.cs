@@ -38,7 +38,8 @@ public class GameManager : MonoBehaviour
         Opening,
         Start,
         Playing,
-        GameOver
+        GameOver,
+        Paused
     };
     private GameState m_GameState;
     public GameState State { get { return m_GameState; } }
@@ -114,6 +115,12 @@ public class GameManager : MonoBehaviour
                 //StartCoroutine(WaitCommand(waitFor));
                 m_MessageText.gameObject.SetActive(false);
                 //Time.timeScale = 1;
+                if (Input.GetKeyUp(KeyCode.Escape) && m_isGamePaused == false)
+                {
+                    PauseGame();
+                }
+                break;
+            case GameState.Paused:
                 break;
             case GameState.GameOver:
                 m_MessageText.gameObject.SetActive(true);
@@ -128,14 +135,6 @@ public class GameManager : MonoBehaviour
                 m_HighScoreEditor.AddScore(m_Score, m_PlayerName);
                 m_HighScoreEditor.SaveScores();
                 break;
-        }
-        if (Input.GetKeyUp(KeyCode.Tab) && m_isGamePaused == false)
-        {
-            PauseGame();
-        }
-        else if (Input.GetKeyUp(KeyCode.Tab) && m_isGamePaused == true)
-        {
-            ResumeGame();
         }
         UpdateTimer();
     }
@@ -155,18 +154,18 @@ public class GameManager : MonoBehaviour
     }
     public void PauseGame()
     {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-        foreach (GameObject gameObject in m_InGameHUD)
-        {
-            gameObject.gameObject.SetActive(false);
-        }
-        foreach (GameObject gameObject in m_PauseMenu)
-        {
-            gameObject.gameObject.SetActive(true);
-        }
-        Time.timeScale = 0;
-        m_isGamePaused = true;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            foreach (GameObject gameObject in m_InGameHUD)
+            {
+                gameObject.gameObject.SetActive(false);
+            }
+            foreach (GameObject gameObject in m_PauseMenu)
+            {
+                gameObject.gameObject.SetActive(true);
+            }
+            Time.timeScale = 0;
+            m_isGamePaused = true;
         foreach (Component part in m_PlayerParts)
         {
             part.gameObject.SetActive(false);
@@ -186,7 +185,7 @@ public class GameManager : MonoBehaviour
         }
         Time.timeScale = 1;
         m_isGamePaused = false;
-        foreach(Component part in m_PlayerParts)
+        foreach (Component part in m_PlayerParts)
         {
             part.gameObject.SetActive(true);
         }
