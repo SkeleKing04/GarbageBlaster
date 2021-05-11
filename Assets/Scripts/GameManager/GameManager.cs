@@ -72,8 +72,23 @@ public class GameManager : MonoBehaviour
             case GameState.Playing:
                 ChangeVolume();
                 ChangeFOV();
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+                Time.timeScale = 1;
+                foreach (GameObject gameObject in m_InGameHUD)
+                {
+                    gameObject.gameObject.SetActive(true);
+                }
+                foreach (GameObject gameObject in m_PauseMenu)
+                {
+                    gameObject.gameObject.SetActive(false);
+                }
+                foreach (Component part in m_PlayerParts)
+                {
+                    part.gameObject.SetActive(true);
+                }
                 //m_GameOver = false;
-                if (m_NameInput != null)
+                if (m_NameInput.text != null)
                 {
                     m_PlayerName = m_NameInput.text;
                 }
@@ -84,10 +99,6 @@ public class GameManager : MonoBehaviour
                 m_ScoreDisplay.text = "Score:\n" + m_Score.ToString();
                 VacGun vacGun = UnityEngine.Object.FindObjectOfType<VacGun>();
                 m_GarbageLoadedDisplay.text = "Ammo:\n" + vacGun.m_LoadedGarbage.ToString();
-                foreach (GameObject gameObject in m_PauseMenu)
-                {
-                    gameObject.gameObject.SetActive(false);
-                }
                 m_MessageText.gameObject.SetActive(false);
                 AudioListener.volume = m_VolumeSlider.value;
                 m_VolumeSliderText.text = "Volume: " + Mathf.RoundToInt(m_VolumeSlider.value * 100).ToString() + "%";
