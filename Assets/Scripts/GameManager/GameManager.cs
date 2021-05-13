@@ -284,6 +284,12 @@ public class GameManager : MonoBehaviour
         {
             part.gameObject.SetActive(true);
         }
-        m_SettingEditor.SaveSettings(m_VolumeSlider, m_FOVSlider);
+        m_Score = 0;
+        m_ScoreDisplay.text = "Score:\n" + m_Score.ToString();
+        VacGun vacGun = UnityEngine.Object.FindObjectOfType<VacGun>();
+        vacGun.m_LoadedGarbage = 0;
+        m_GarbageLoadedDisplay.text = "Ammo:\n" + vacGun.m_LoadedGarbage.ToString();
+        m_DisplayTime = m_LevelTime;
+        m_GameState = GameState.Playing;
     }
 }
