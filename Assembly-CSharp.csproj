@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\AINavigation.cs" />
     <Compile Include="Assets\Scripts\CollectItem.cs" />
     <Compile Include="Assets\Scripts\DayNightCycle.cs" />
+    <Compile Include="Assets\Scripts\GameManager\GameManager.cs" />
     <Compile Include="Assets\Scripts\GameManager\highscoreEditor.cs" />
     <Compile Include="Assets\Scripts\GameManager\settingEditor.cs" />
     <Compile Include="Assets\Scripts\GarbagePileLimit.cs" />
