@@ -284,6 +284,8 @@ public class GameManager : MonoBehaviour
         {
             part.gameObject.SetActive(true);
         }
+        m_PlayerParts[0].gameObject.transform.position = new Vector3(0, -0.5f, 0);
+        m_PlayerParts[0].gameObject.transform.position = new Vector3(0, 0.4000001f, 0);
         m_Score = 0;
         m_ScoreDisplay.text = "Score:\n" + m_Score.ToString();
         VacGun vacGun = UnityEngine.Object.FindObjectOfType<VacGun>();
