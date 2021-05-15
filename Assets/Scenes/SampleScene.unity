@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.2944951, g: 0.37262073, b: 0.58591694, a: 1}
+  m_IndirectSpecularColor: {r: 0.2944955, g: 0.37262172, b: 0.58591807, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -847,6 +847,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   size: 30
   speed: 1
+  movingAxes: 
 --- !u!1 &759478431
 GameObject:
   m_ObjectHideFlags: 0
@@ -1084,6 +1085,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   size: 40
   speed: 1
+  movingAxes: 
 --- !u!1 &868286584
 GameObject:
   m_ObjectHideFlags: 0
@@ -1316,6 +1318,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   size: 40
   speed: 1
+  movingAxes: 
 --- !u!1 &921476798
 GameObject:
   m_ObjectHideFlags: 0
@@ -1733,6 +1736,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   size: 30
   speed: 1
+  movingAxes: 
 --- !u!1 &1145049874
 GameObject:
   m_ObjectHideFlags: 0
@@ -2799,25 +2803,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1132265832341302004, guid: 2e26b61aa082df941992da5387ffd2f5,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: RestartGame
-      objectReference: {fileID: 0}
-    - target: {fileID: 3867520517154875493, guid: 2e26b61aa082df941992da5387ffd2f5,
-        type: 3}
-      propertyPath: m_PlayerParts.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3867520517154875493, guid: 2e26b61aa082df941992da5387ffd2f5,
-        type: 3}
-      propertyPath: m_PlayerName
-      value: NoobSlayer69
-      objectReference: {fileID: 0}
     - target: {fileID: 3867520517154875493, guid: 2e26b61aa082df941992da5387ffd2f5,
         type: 3}
       propertyPath: m_LevelTime
-      value: 1
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 3867520517154875493, guid: 2e26b61aa082df941992da5387ffd2f5,
         type: 3}
@@ -2919,36 +2908,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6829487255006340346, guid: 2e26b61aa082df941992da5387ffd2f5,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -150
-      objectReference: {fileID: 0}
-    - target: {fileID: 6829487255006340346, guid: 2e26b61aa082df941992da5387ffd2f5,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -60
-      objectReference: {fileID: 0}
-    - target: {fileID: 6829487255006340346, guid: 2e26b61aa082df941992da5387ffd2f5,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7258386964825170624, guid: 2e26b61aa082df941992da5387ffd2f5,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 150
-      objectReference: {fileID: 0}
-    - target: {fileID: 7258386964825170624, guid: 2e26b61aa082df941992da5387ffd2f5,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7258386964825170624, guid: 2e26b61aa082df941992da5387ffd2f5,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -60
-      objectReference: {fileID: 0}
     - target: {fileID: 7550622283646471813, guid: 2e26b61aa082df941992da5387ffd2f5,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -2974,11 +2933,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7991830904566898716, guid: 2e26b61aa082df941992da5387ffd2f5,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -23.299988
-      objectReference: {fileID: 0}
     - target: {fileID: 8299012957945045723, guid: 2e26b61aa082df941992da5387ffd2f5,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -3003,6 +2957,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8953567956154224088, guid: 2e26b61aa082df941992da5387ffd2f5,
+        type: 3}
+      propertyPath: size
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8953567956154224088, guid: 2e26b61aa082df941992da5387ffd2f5,
+        type: 3}
+      propertyPath: speed
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 9028697093074364125, guid: 2e26b61aa082df941992da5387ffd2f5,
         type: 3}
@@ -3149,6 +3113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   size: 30
   speed: 1
+  movingAxes: 
 --- !u!1 &1707335011
 GameObject:
   m_ObjectHideFlags: 0
@@ -3622,6 +3587,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   size: 30
   speed: 1
+  movingAxes: 
 --- !u!1 &2056734130
 GameObject:
   m_ObjectHideFlags: 0

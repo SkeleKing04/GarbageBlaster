@@ -13,10 +13,15 @@ public class ItemSpawner : MonoBehaviour
     public bool[] m_SpawnPointFull;
     public bool m_garbageSpawned;
     public int randomIndex;
+    public List<GameObject> m_AllGarbage = new List<GameObject>();
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(SpawnItem());
+    }
+    void Update()
+    {
+
     }
 
     IEnumerator SpawnItem()
@@ -38,6 +43,8 @@ public class ItemSpawner : MonoBehaviour
                         m_GarbageCount++;
                         m_SpawnPointFull[randomIndex] = true;
                         m_garbageSpawned = true;
+                        GameManager gameManager = Object.FindObjectOfType<GameManager>();
+                        m_AllGarbage.Add(m_currentInstance);
                         Debug.Log(m_GarbageCount);
                     }
                     else

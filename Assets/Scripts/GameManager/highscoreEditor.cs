@@ -11,6 +11,7 @@ public class highscoreEditor : MonoBehaviour
     public string m_HighScoreNames = "highscorenames.txt";
     public int[] m_Scores = new int[5];
     public string[] m_ScoreNames = new string[5];
+    public bool m_AddedToHighscores;
     // Start is called before the first frame update
     void Start()
     {
@@ -138,6 +139,7 @@ public class highscoreEditor : MonoBehaviour
                 break;
             }
         }
+        m_AddedToHighscores = false;
         // If no desired index was found then the score // isn't high enough to get on the table, so we just // abort.
         if (desiredIndex < 0)
         {
@@ -148,13 +150,10 @@ public class highscoreEditor : MonoBehaviour
         for (int i = m_Scores.Length - 1; i > desiredIndex; i--)
         {
             m_Scores[i] = m_Scores[i - 1];
+            m_AddedToHighscores = true;
         }
         // Insert our new score in its place
         m_Scores[desiredIndex] = m_Score;
-        /*for (int i = m_ScoreNames.Length - 1; i > desiredIndex; i--)
-        {
-            m_ScoreNames[i] = m_ScoreNames[i - 1];
-        }*/
         m_ScoreNames[desiredIndex] = m_PlayerName;
         Debug.Log(m_PlayerName + "'s score of " + m_Score + " entered into the high scores at position " + desiredIndex, this);
     }
