@@ -82,6 +82,15 @@ public class GameManager : MonoBehaviour
                     {
                         part.gameObject.SetActive(false);
                     }
+                    ItemSpawner itemSpawner = UnityEngine.Object.FindObjectOfType<ItemSpawner>();
+                    int i = 0;
+                    foreach (bool bools in itemSpawner.m_SpawnPointFull)
+                    {
+                        itemSpawner.m_SpawnPointFull[i] = false;
+                        i++;
+                    }
+                    itemSpawner.m_GarbageCount = 0;
+                    itemSpawner.m_garbageSpawned = false;
                     m_DisplayTime = m_LevelTime;
                     GameStateStartUp = false;
                 }
@@ -95,7 +104,6 @@ public class GameManager : MonoBehaviour
                     Cursor.visible = false;
                     Time.timeScale = 1;
                     m_Score = 0;
-                    VacGun vacGun = UnityEngine.Object.FindObjectOfType<VacGun>();
                     foreach (GameObject gameObject in m_InGameHUD)
                     {
                         gameObject.gameObject.SetActive(true);
@@ -117,13 +125,22 @@ public class GameManager : MonoBehaviour
                     {
                         m_PlayerName = "John Doe";
                     }
-                    vacGun.m_LoadedGarbage = 0;
                     m_ScoreDisplay.text = "Score:\n" + m_Score.ToString();
+                    VacGun vacGun = UnityEngine.Object.FindObjectOfType<VacGun>();
                     m_GarbageLoadedDisplay.text = "Ammo:\n" + vacGun.m_LoadedGarbage.ToString();
                     m_MessageText.gameObject.SetActive(false);
                     AudioListener.volume = m_VolumeSlider.value;
                     m_VolumeSliderText.text = "Volume: " + Mathf.RoundToInt(m_VolumeSlider.value * 100).ToString() + "%";
                     m_FOVSliderText.text = "FOV: " + Mathf.RoundToInt((m_FOVSlider.value * 100) + 30).ToString();
+                    ItemSpawner itemSpawner = UnityEngine.Object.FindObjectOfType<ItemSpawner>();
+                    int i = 0;
+                    foreach (bool bools in itemSpawner.m_SpawnPointFull)
+                    {
+                        itemSpawner.m_SpawnPointFull[i] = false;
+                        i++;
+                    }
+                    itemSpawner.m_GarbageCount = 0;
+                    itemSpawner.m_garbageSpawned = false;
                     //m_MessageText.text = "Ready...";
                     //Time.timeScale = 0;
                     //waitFor = 3;
@@ -253,12 +270,11 @@ public class GameManager : MonoBehaviour
         m_TimerDisplay.text = string.Format("{0:D2}:{1:D2}", (seconds / 60), (seconds % 60));
         if (m_DisplayTime <= 0)
         {
-            //while (m_GameOver == false)
-            //{
+            VacGun vacGun = UnityEngine.Object.FindObjectOfType<VacGun>();
+            vacGun.m_LoadedGarbage = 0;
+            m_GarbageLoadedDisplay.text = "Ammo:\n" + vacGun.m_LoadedGarbage.ToString();
             GameStateStartUp = true;
                 m_GameState = GameState.GameOver;
-                //m_GameOver = true;
-            //}
         }
         
     }
@@ -317,6 +333,15 @@ public class GameManager : MonoBehaviour
         VacGun vacGun = UnityEngine.Object.FindObjectOfType<VacGun>();
         vacGun.m_LoadedGarbage = 0;
         m_GarbageLoadedDisplay.text = "Ammo:\n" + vacGun.m_LoadedGarbage.ToString();
+        ItemSpawner itemSpawner = UnityEngine.Object.FindObjectOfType<ItemSpawner>();
+        int i = 0;
+        foreach (bool bools in itemSpawner.m_SpawnPointFull)
+        {
+            itemSpawner.m_SpawnPointFull[i] = false;
+            i++;
+        }
+        itemSpawner.m_GarbageCount = 0;
+        itemSpawner.m_garbageSpawned = false;
         m_DisplayTime = m_LevelTime;
         m_GameState = GameState.Playing;
     }
@@ -343,6 +368,9 @@ public class GameManager : MonoBehaviour
     }
     public void ReturnToStart()
     {
+        m_Score = 0;
+        m_ScoreDisplay.text = "Score:\n" + m_Score.ToString();
+        m_DisplayTime = m_LevelTime;
         GameStateStartUp = true;
         m_GameState = GameState.Start;
     }

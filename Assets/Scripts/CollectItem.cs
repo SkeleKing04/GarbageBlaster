@@ -32,6 +32,8 @@ public class CollectItem : MonoBehaviour
             vacGun.m_LoadedGarbage++;
             GameManager gameManager = Object.FindObjectOfType<GameManager>();
             gameManager.UpdateGarbageText();
+            itemSpawner.m_AllGarbage.Remove(gameObject);
+
             Destroy(gameObject);
             Debug.Log(itemSpawner.m_GarbageCount);
         }

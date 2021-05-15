@@ -31,6 +31,7 @@ public class VacGun : MonoBehaviour
         gameManager.UpdateGarbageText();
         ItemSpawner itemSpawner = Object.FindObjectOfType<ItemSpawner>();
         itemSpawner.m_GarbageCount++;
+        itemSpawner.m_AllGarbage.Add(GarbageInstance.gameObject);
         Debug.Log(itemSpawner.m_GarbageCount);
     }
 }
