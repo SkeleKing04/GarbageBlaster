@@ -68,6 +68,8 @@
     <Compile Include="Assets\Scripts\CollectItem.cs" />
     <Compile Include="Assets\Scripts\DayNightCycle.cs" />
     <Compile Include="Assets\Scripts\GameManager\GameManager.cs" />
+    <Compile Include="Assets\Scripts\GameManager\highscoreEditor.cs" />
+    <Compile Include="Assets\Scripts\GameManager\settingEditor.cs" />
     <Compile Include="Assets\Scripts\GarbagePileLimit.cs" />
     <Compile Include="Assets\Scripts\GoalScoredCheck.cs" />
     <Compile Include="Assets\Scripts\ItemSpawner.cs" />
@@ -77,6 +79,8 @@
     <Compile Include="Assets\Scripts\SinMovement.cs" />
     <Compile Include="Assets\Scripts\VacGun.cs" />
     <Compile Include="Assets\Scripts\wagabababobo.cs" />
+    <None Include="Assets\highscores.txt" />
+    <None Include="Assets\highscorenames.txt" />
     <None Include="Assets\settings.txt" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/User/Documents/GitHub/GarbageBlaster/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
