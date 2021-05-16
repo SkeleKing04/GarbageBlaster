@@ -27,7 +27,6 @@ public class GoalScoredCheck : MonoBehaviour
             itemSpawner.m_GarbageCount--;
             GameManager gameManager = Object.FindObjectOfType<GameManager>();
             gameManager.m_Score++;
-            gameManager.UpdateScoreText();
         }
     }
 }
