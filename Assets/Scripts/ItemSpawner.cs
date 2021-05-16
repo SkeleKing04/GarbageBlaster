@@ -7,7 +7,7 @@ public class ItemSpawner : MonoBehaviour
     public GameObject m_ItemToSpawn;
     public Transform[] m_SpawnPoints;
     public float m_timer;
-    private GameObject m_currentInstance;
+    public GameObject m_currentInstance;
     public int m_MaxGarbageCount;
     public int m_GarbageCount;
     public bool[] m_SpawnPointFull;

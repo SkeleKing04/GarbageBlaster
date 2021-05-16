@@ -4865,7 +4865,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Collectable: {fileID: 0}
   m_SpawnLocal: 0
-  m_garbageNoise: {fileID: 8300000, guid: 06f27c898859ca84096c4d5a86d1cfc3, type: 3}
+  m_garbageNoise: {fileID: 8300000, guid: 08d1beae86cdae849bbec7d9a7ffe456, type: 3}
 --- !u!54 &4139859743825379522
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4889,7 +4889,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7582912626388925597}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 08d1beae86cdae849bbec7d9a7ffe456, type: 3}

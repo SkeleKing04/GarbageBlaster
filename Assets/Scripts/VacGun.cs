@@ -27,10 +27,9 @@ public class VacGun : MonoBehaviour
         Rigidbody GarbageInstance = Instantiate(m_GarbageBag, m_FireTransform.position, m_FireTransform.rotation) as Rigidbody;
         GarbageInstance.velocity = m_LaunchForce * m_FireTransform.forward;
         m_LoadedGarbage--;
-        GameManager gameManager = Object.FindObjectOfType<GameManager>();
-        gameManager.UpdateGarbageText();
         ItemSpawner itemSpawner = Object.FindObjectOfType<ItemSpawner>();
         itemSpawner.m_GarbageCount++;
+        itemSpawner.m_AllGarbage.Add(GarbageInstance.gameObject);
         Debug.Log(itemSpawner.m_GarbageCount);
     }
 }
