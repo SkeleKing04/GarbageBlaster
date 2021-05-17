@@ -847,7 +847,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   size: 30
   speed: 1
-  movingAxes: 
+  movingAxes: z
 --- !u!1 &759478431
 GameObject:
   m_ObjectHideFlags: 0
@@ -1085,7 +1085,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   size: 40
   speed: 1
-  movingAxes: 
+  movingAxes: z
 --- !u!1 &868286584
 GameObject:
   m_ObjectHideFlags: 0
@@ -1318,7 +1318,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   size: 40
   speed: 1
-  movingAxes: 
+  movingAxes: z
 --- !u!1 &921476798
 GameObject:
   m_ObjectHideFlags: 0
@@ -1736,7 +1736,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   size: 30
   speed: 1
-  movingAxes: 
+  movingAxes: z
 --- !u!1 &1145049874
 GameObject:
   m_ObjectHideFlags: 0
@@ -3113,7 +3113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   size: 30
   speed: 1
-  movingAxes: 
+  movingAxes: z
 --- !u!1 &1707335011
 GameObject:
   m_ObjectHideFlags: 0
@@ -3587,7 +3587,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   size: 30
   speed: 1
-  movingAxes: 
+  movingAxes: z
 --- !u!1 &2056734130
 GameObject:
   m_ObjectHideFlags: 0
